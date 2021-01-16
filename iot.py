@@ -3,7 +3,7 @@ import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
-host_name = '192.168.0.114'    # Change this to your Raspberry Pi IP address
+host_name = '192.168.1.229'    # Change this to your Raspberry Pi IP address
 host_port = 8000
 led_pin = 11
 
