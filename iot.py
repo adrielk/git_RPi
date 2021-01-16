@@ -33,7 +33,7 @@ class MyServer(BaseHTTPRequestHandler):
         html = '''
             <html>
             <body style="width:960px; margin: 20px auto;">
-            <h1>Welcome to my Raspberry Pi</h1>
+            <h1>Welcome to Adriel's Raspberry Pi</h1>
             <p>Current GPU temperature is {}</p>
             <form action="/" method="POST">
                 Turn LED :
@@ -72,6 +72,7 @@ if __name__ == '__main__':
     print("Server Starts - %s:%s" % (host_name, host_port))
 
     try:
+        GPIO.output(led_pin, GPIO.HIGH)
         http_server.serve_forever()
     except KeyboardInterrupt:
         http_server.server_close()
