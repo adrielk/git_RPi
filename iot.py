@@ -56,7 +56,7 @@ class MyServer(BaseHTTPRequestHandler):
         post_data = post_data.split("=")[1]    # Only keep the value
         
         # GPIO setup
-        GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
         GPIO.setup(led_pin,GPIO.OUT)
 
@@ -77,7 +77,7 @@ def setup():
 if __name__ == '__main__':
     http_server = HTTPServer((host_name, host_port), MyServer)
     print("Server Starts - %s:%s" % (host_name, host_port))
-    setup()
+    #setup()
     try:
         http_server.serve_forever()
     except KeyboardInterrupt:
