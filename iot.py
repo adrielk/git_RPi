@@ -67,12 +67,18 @@ class MyServer(BaseHTTPRequestHandler):
         print("LED is {}".format(post_data))
         self._redirect('/')    # Redirect back to the root url
 
+def setup():
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(ledPin, GPIO.OUT)
+    GPIO.output(led_pin, GPIO.HIGH)
+    print('using pin%d'%ledPin)
+
+
 if __name__ == '__main__':
     http_server = HTTPServer((host_name, host_port), MyServer)
     print("Server Starts - %s:%s" % (host_name, host_port))
-
+    setup()
     try:
-        GPIO.output(led_pin, GPIO.HIGH)
         http_server.serve_forever()
     except KeyboardInterrupt:
         http_server.server_close()
