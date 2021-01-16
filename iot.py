@@ -69,9 +69,9 @@ class MyServer(BaseHTTPRequestHandler):
 
 def setup():
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(ledPin, GPIO.OUT)
+    GPIO.setup(led_pin, GPIO.OUT)
     GPIO.output(led_pin, GPIO.HIGH)
-    print('using pin%d'%ledPin)
+    print('using pin%d'%led_pin)
 
 
 if __name__ == '__main__':
